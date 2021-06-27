@@ -8,13 +8,17 @@ import matplotlib.pyplot as plt
 header = st.beta_container()
 dataset = st.beta_container()
 
+@st.cache
+def get_data(filename):
+    file = read_csv(filename,sep=";",decimal=',')
+    return file
 
 with header:
     st.title("welcome to my page")
     
 with dataset:
     st.header("comecando")
-    dataframe = read_csv('/dados/data.csv',sep=";",decimal=',')
+    dataframe = get_data('dados/data.csv')
     df=dataframe[['Permanência no Destino (h)', 'Permanência Origem (h)', 'Local TD', "UF Origem", "UF Cliente"]]
     
     sel_col, disp_col = st.beta_columns(2)
