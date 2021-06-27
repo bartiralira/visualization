@@ -18,7 +18,7 @@ with header:
     
 with dataset:
     st.header("comecando")
-    dataframe = get_data('dados/data.csv')
+    dataframe = get_data('./dados/data.csv')
     df=dataframe[['Permanência no Destino (h)', 'Permanência Origem (h)', 'Local TD', "UF Origem", "UF Cliente"]]
     
     sel_col, disp_col = st.beta_columns(2)
